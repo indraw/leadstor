@@ -3,6 +3,7 @@
 This is the source code repository and the architectural design document repository.
 
 [Architecture]
+
 We assume to use spring-boot as backend technique.
 
 We use AngularJS as our frontend example right now.
@@ -22,5 +23,6 @@ We use .Thrift file to define the contracting interface between Web Server and t
 system. We shall work together.
 
 [Source Code]
+
 A skeleten for us to implement features here.
 A .thrift file defines only one API the wev server can call into storage system
