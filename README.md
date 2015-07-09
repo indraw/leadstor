@@ -1,8 +1,8 @@
-==Web Server Sketch Design=====
 # leadstor
 This is the source code repository and the architectural design document repository.
+Web Server Sketch Design.
 
-[Architecture]
+# Architecture
 
 We assume to use spring-boot as backend technique.
 
@@ -22,7 +22,7 @@ based right now).  Please refer to subdirectory "/stos-intf" for further informa
 We use .Thrift file to define the contracting interface between Web Server and the whole Storage
 system. We shall work together.
 
-[Source Code]
+# Source Code
 
 A skeleten for us to implement features here.
 A .thrift file defines only one API the wev server can call into storage system
