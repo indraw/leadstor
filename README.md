@@ -46,7 +46,7 @@ HTTP header cookie: user
 
 Verb: post
 
-Body: { "volname": <name>, "volsize":<size>, "volha":<ha>}
+Body: { "volname": "name", "volsize":"size", "volha":"ha"}
 
 Return http status: 200 if ok
        non-200 with error/exception codes if errors. 
@@ -66,7 +66,7 @@ Body: not allow, must be empty
 Return http status: 200 if ok
         non-200 with error codes if errors. 
 
-return HTTP body if 200: {"volname":<name>, "volsize":<size>, "volha":<ha>, "volusage":<usage>,  "whateverproperties": <more stats>}
+return HTTP body if 200: {"volname":"name", "volsize":"size", "volha":"ha", "volusage":"usage",  "whateverproperties": "more stats"}
 
 1.3
 
