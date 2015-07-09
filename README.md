@@ -26,3 +26,34 @@ system. We shall work together.
 
 A skeleten for us to implement features here.
 A .thrift file defines only one API the wev server can call into storage system
+
+# Restful API
+Front-end sends JSON objects to backend to do CRUD (creating, reading, updating, deleting) of objects. 
+
+For AngularJS, the API is $http
+For JQUERY, the API is $ajax
+There are other things in other tool suites. 
+
+1. CRUD volumes
+1.1 creation of volume
+URL:   /v0.1/volop/{volname}
+HTTP header cookie: user
+Verb: post
+Body: { "volname": <name>, "volsize":<size>, "volha":<ha>}
+Return http status: 200 if ok
+       non-200 with error/exception codes if errors. 
+Return Body: always empty
+
+1.2 reading statis of volume
+URL:   /v0.1/volop/{volname}
+HTTP header cookie: user
+Verb: get
+Body: not allow, must be empty
+Return http status: 200 if ok
+        non-200 with error codes if errors. 
+return HTTP body if 200: {"volname":<name>, "volsize":<size>, "volha":<ha>, "volusage":<usage>,  "whateverproperties": <more stats>}
+
+1.3
+1.4
+
+
