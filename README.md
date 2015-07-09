@@ -30,9 +30,11 @@ A .thrift file defines only one API the wev server can call into storage system
 # Restful API
 Front-end sends JSON objects to backend to do CRUD (creating, reading, updating, deleting) of objects. 
 
-For AngularJS, the API is $http
-For JQUERY, the API is $ajax
+For AngularJS, the javascript function to call backend API is $http
+For JQUERY, the javascrit function is $ajax
 There are other things in other tool suites. 
+The front-end calls backend specifying JSON in JSON out, checks HTTP status code and parse the JSON content it returned if any. 
+The front-end could also set up some synchronous/asynchronous mode with callbacks to wait for backend to return.
 
 1. CRUD volumes
 
