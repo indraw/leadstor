@@ -1,13 +1,14 @@
-
-=======
+==Web Server Sketch Design=====
 # leadstor
 This is the source code repository and the architectural design document repository.
-Startup project for webui
 
 [Architecture]
 We assume to use spring-boot + AngularJS as our backend/frontend. This uses the most
 recent front technique and also cloud ready. (Spring-boot is more entrpeise heavier
 than node.js. Nimble mostly based on AngularJS).
+Note: for non-AngularJS front-end tech such as Threadlafe, PageMaker, Dojo etc ,there 
+is no essential difference as we put the webui
+as resources into our web server. We use AngujarJS as example only. 
 
 [Demo project]
 Our demo project is about maintainence of contacts cards.
@@ -55,25 +56,3 @@ I assume you could have difficulty to make build as accessing many libraies to f
 OR takes long to build. So I keep target directory for you. The final build system shall do build,
 though these libraries downloading is one-time (how fast dependent on network speed and China firewall),
 Shall address later if anything related to build broken. 
-
-[Things not done yet]
-a) Wiret Apache Thrift communication module to define protocol and 
-thus generate java stub, and c stub modules
-honor the same protocol, therefore enable spring-boot backend java code to be able to talk
-with native c language libraies and vice verse. For example, listen to event streams
-This shall create libraries of java, c, (python, c++, ... if you like) that speak the same
-data binary potocol based on tcp/ip.
-The Java shall be hooked up into spring-boot.
-The C shall be hooked into Storage OS.
-
-[Plan]
-Hire: 
-As we have UX design to copy we need solid GUI only.
-
-hire a good AngularJS expert to design front-end. This is kind of puzzle to me, as we need
-front-end people for one time-as GUI is done, you have no use. Here mostly of time it is
-done as consultant service. I would suggest you go this route to issue contract. Though this
-could attribute to management difficulty. 
-
-back-end people. As I am expert in cloud/spring-boot, shall train some guy. Will consider.
-
