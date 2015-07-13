@@ -46,7 +46,8 @@ HTTP header cookie: user
 
 Verb: post
 
-Body: 
+Body:
+
 { "volname": "name", 
 "size":"size-MB", 
 "description":"", 
@@ -110,7 +111,9 @@ HTTP header cookie: user
 
 Verb: put
 
-Body: { "volname": "name", "size":"size-MB", "description":"", "policyid":""} 
+Body:
+
+{ "volname": "name", "size":"size-MB", "description":"", "policyid":""} 
 // policy: combination of block size, compress, caching etc. 
 
 Return http status: 200 if ok
@@ -131,6 +134,7 @@ Verb: get
 HTTP status: 200 or others
 
 Result body if 200
+
 {
 "totalDiskRawSpace": "space-mb",
 "totalVolumeUSage": "usage-mb",
