@@ -109,7 +109,7 @@ URL:   /v0.1/volume/{volname}
 
 HTTP header cookie: user
 
-Verb: post
+Verb: put
 
 Body: { "volname": "name", "size":"size-MB", "description":"", "policyid":""} 
 // policy: combination of block size, compress, caching etc. 
