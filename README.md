@@ -163,7 +163,7 @@ result body:
 "volname":"name",
 "volsize":"sizemb",
 "usage":"sizemb",
-"snapusage":"suzemb"
+"snapusage":"sizemb"
 },
 ...
 ]
