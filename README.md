@@ -118,3 +118,30 @@ Return http status: 200 if ok
 
 Return Body: always empty
 
+2. 系统操作
+
+2.1 系统状态 
+
+URL: /v0.1/system/stats
+
+HTTP header cookie: user
+
+Verb: get
+
+HTTP status: 200 or others
+
+Result body if 200
+{
+"totalDiskRawSpace": "space-mb",
+"totalVolumeUSage": "usage-mb",
+"totalSnapUsage":"usage-mb",
+"cacheMetaSize":"size-MB", 
+"cacheDataSize":"size-MB",
+"cacheHitRate":"percentage",
+"PerfPeriod":"seconds", "PerfSamples:"how many data points",
+"throughput":[{"readKBPS":"int", "WriteKBPS":"int"},...],
+"iops":[{"readIOPS":"int", "writeIOPS":"int"},...],
+"latency":[{"readLatency":"microseconds","WriteLatency":"microSeconds"},...],
+"alertTimeRange":"hours",
+"alerts":[{"timestamp":"utc", "message":"string"},...]
+}
