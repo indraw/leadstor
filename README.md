@@ -27,7 +27,7 @@ system. We shall work together.
 A skeleten for us to implement features here.
 A .thrift file defines only one API the wev server can call into storage system
 
-# Restful API
+# Restful API 设计
 Front-end sends JSON objects to backend to do CRUD (creating, reading, updating, deleting) of objects. 
 
 For AngularJS, the javascript function to call backend API is $http
@@ -36,26 +36,27 @@ There are other things in other tool suites.
 The front-end calls backend specifying JSON in JSON out, checks HTTP status code and parse the JSON content it returned if any. 
 The front-end could also set up some synchronous/asynchronous mode with callbacks to wait for backend to return.
 
-1. CRUD volumes
+1. 卷操作
 
-1.1 creation of volume
+1.1 产生卷
 
-URL:   /v0.1/volop/{volname}
+URL:   /v0.1/volume/{volname}
 
 HTTP header cookie: user
 
 Verb: post
 
-Body: { "volname": "name", "volsize":"size", "volha":"ha"}
+Body: { "volname": "name", "size":"size-MB", "description":"", "policyid":""} 
+// policy: combination of block size, compress, caching etc. 
 
 Return http status: 200 if ok
        non-200 with error/exception codes if errors. 
 
 Return Body: always empty
 
-1.2 reading statis of volume
+1.2 读卷
 
-URL:   /v0.1/volop/{volname}
+URL:   /v0.1/volume/{volname}
 
 HTTP header cookie: user
 
@@ -66,9 +67,24 @@ Body: not allow, must be empty
 Return http status: 200 if ok
         non-200 with error codes if errors. 
 
-return HTTP body if 200: {"volname":"name", "volsize":"size", "volha":"ha", "volusage":"usage",  "whateverproperties": "more stats"}
+return HTTP body if 200: {"volname":"name", "size":"size-MB", "description":"",
+"usage":"usage-MB", "policyid":"id", [{},{},{}]}
 
-1.3
+1.3 删除卷
+
+URL:   /v0.1/volume/{volname}
+
+HTTP header cookie: user
+
+Verb: delete
+
+Body: not allow, must be empty
+
+Return http status: 200 if ok
+        non-200 with error codes if errors. 
+
+return HTTP body if 200: {"volname":"name", "size":"size-MB", "description":"",
+"usage":"usage-MB", "policyid":"id", [{},{},{}]}
 
 1.4
 
