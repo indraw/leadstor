@@ -46,8 +46,15 @@ HTTP header cookie: user
 
 Verb: post
 
-Body: { "volname": "name", "size":"size-MB", "description":"", "policyid":""} 
-// policy: combination of block size, compress, caching etc. 
+Body: 
+{ "volname": "name", 
+"size":"size-MB", 
+"description":"", 
+"policyid":"id",
+"accessControl":"initiator-group|chap",  // optional
+"shapshotSchedule":"string-id",   // optional
+} 
+// policy: combination of block size, compress, caching etc. performance policy ID.
 
 Return http status: 200 if ok
        non-200 with error/exception codes if errors. 
@@ -67,8 +74,18 @@ Body: not allow, must be empty
 Return http status: 200 if ok
         non-200 with error codes if errors. 
 
-return HTTP body if 200: {"volname":"name", "size":"size-MB", "description":"",
-"usage":"usage-MB", "policyid":"id", [{},{},{}]}
+return HTTP body if 200: 
+{"volname":"name", "size":"size-MB", "description":"",
+"usage":"usage-MB", "policyid":"id", "cacheMetaSize":"size-MB", "cacheDataSize":"size-MB",
+"cacheHitRate":"percentage", "snapUsage":"size-MB", 
+"PerfPeriod":"seconds", "PerfSamples:"how many data points",
+"throughput":[{"readKBPS":"int", "WriteKBPS":"int"},...],
+"iops":[{"readIOPS":"int", "writeIOPS":"int"},...],
+"latency":[{"readLatency":"microseconds","WriteLatency":"microSeconds"},...],
+"stauts":"online|offline",
+"accessControl":"iscsi-group-id",
+"shapshotSchedule":"string-id"
+}
 
 1.3 删除卷
 
@@ -86,6 +103,19 @@ Return http status: 200 if ok
 return HTTP body if 200: {"volname":"name", "size":"size-MB", "description":"",
 "usage":"usage-MB", "policyid":"id", [{},{},{}]}
 
-1.4
+1.4 改变卷
 
+URL:   /v0.1/volume/{volname}
+
+HTTP header cookie: user
+
+Verb: post
+
+Body: { "volname": "name", "size":"size-MB", "description":"", "policyid":""} 
+// policy: combination of block size, compress, caching etc. 
+
+Return http status: 200 if ok
+       non-200 with error/exception codes if errors. 
+
+Return Body: always empty
 
