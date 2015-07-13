@@ -36,7 +36,7 @@ There are other things in other tool suites.
 The front-end calls backend specifying JSON in JSON out, checks HTTP status code and parse the JSON content it returned if any. 
 The front-end could also set up some synchronous/asynchronous mode with callbacks to wait for backend to return.
 
-1. 卷操作
+1. 单个卷操作
 
 1.1 产生卷
 
@@ -149,3 +149,21 @@ Result body if 200
 "alertTimeRange":"hours",
 "alerts":[{"timestamp":"utc", "message":"string"},...]
 }
+
+3. 每用户所有卷操作
+
+URL:   /v0.1/volumes/{userid}
+
+verb: get
+
+result body:
+
+[
+{
+"volname":"name",
+"volsize":"sizemb",
+"usage":"sizemb",
+"snapusage":"suzemb"
+},
+...
+]
